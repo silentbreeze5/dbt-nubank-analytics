@@ -1,3 +1,9 @@
+{{
+  config(
+    materialized='table'
+  )
+}}
+
 WITH cte_accounts AS (
     SELECT
         CAST(account_id AS integer) AS account_id
