@@ -48,3 +48,36 @@ models:
         description: "ID do ano"
       - name: action_year
         description: "Ano de ação"
+
+  - name: d_customer_accounts
+    description: "Tabela combinando informações de clientes e contas"
+    columns:
+      - name: account_id
+        description: "ID único da conta"
+        tests: 
+          - not_null
+          - unique
+      - name: customer_id
+        description: "ID único do cliente"
+        tests:
+          - not_null
+      - name: first_name
+        description: "Primeiro nome do cliente"
+      - name: last_name
+        description: "Último nome do cliente"
+      - name: customer_city
+        description: "ID da cidade do cliente"
+      - name: cpf
+        description: "CPF do cliente"
+      - name: country_name
+        description: "Nome do país"
+      - name: created_at
+        description: "Data de criação da conta"
+      - name: status
+        description: "Status da conta"
+      - name: account_branch
+        description: "Filial da conta"
+      - name: account_check_digit
+        description: "Dígito verificador da conta"
+      - name: account_number
+        description: "Número da conta"
