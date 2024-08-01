@@ -6,7 +6,7 @@
 
 WITH cte_city AS (
     SELECT
-        CAST(city AS string) AS city
+        city.city AS city_name
         , CAST(state_id AS integer) AS state_id
         , CAST(city_id AS integer) AS city_id 
     FROM {{ source('raw-data', 'city')}}

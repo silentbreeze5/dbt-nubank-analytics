@@ -7,6 +7,7 @@ sources:
     tables:
       - name: accounts
       - name: city
+      - name: country
       - name: customers
       - name: d_month
       - name: d_time
@@ -122,6 +123,30 @@ models:
           - unique
       - name: action_year
         description: "Ano de ação"
+  
+  - name: stg_city
+    description: "Tabela dimensão de cidades"
+    columns:
+      - name: city_id
+        description: "ID único da cidade"
+        tests: 
+          - not_null
+          - unique
+      - name: city_name
+        description: "Nome da cidade"
+      - name: state_id
+        description: "ID do estado"
+
+  - name: stg_country
+    description: "Tabela dimensão de países"
+    columns:
+      - name: country_id
+        description: "ID único do país"
+        tests: 
+          - not_null
+          - unique
+      - name: country
+        description: "Nome do país"
 
   - name: stg_pix_movements
     description: "Tabela de movimentações PIX"

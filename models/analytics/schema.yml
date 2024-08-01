@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: d_geographic
+    description: "Tabela dimensão geográfica que combina cidades, estados e países"
+    columns:
+      - name: geo_id
+        description: "Chave primária da tabela composta pelas outras chaves"
+        tests: 
+          - not_null
+          - unique
+      - name: city_id
+        description: "ID único da cidade"
+      - name: city
+        description: "Nome da cidade"
+      - name: state_id
+        description: "ID único do estado"
+      - name: state_name
+        description: "Nome do estado"
+      - name: country_id
+        description: "ID único do país"
+      - name: country
+        description: "Nome do país"
+
+  - name: d_calendar
+    description: "Tabela dimensão de tempo combinando tempo, semana, dia da semana, mês e ano"
+    columns:
+      - name: time_id
+        description: "ID único do tempo"
+        tests:
+          - not_null
+          - unique
+      - name: action_timestamp
+        description: "Timestamp da ação"
+      - name: week_id
+        description: "ID da semana"
+      - name: action_week
+        description: "Semana de ação"
+      - name: weekday_id
+        description: "ID do dia da semana"
+      - name: action_weekday
+        description: "Dia da semana de ação"
+      - name: month_id
+        description: "ID do mês"
+      - name: action_month
+        description: "Mês de ação"
+      - name: year_id
+        description: "ID do ano"
+      - name: action_year
+        description: "Ano de ação"
