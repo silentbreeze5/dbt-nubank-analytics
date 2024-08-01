@@ -105,3 +105,18 @@ models:
       - name: in_or_out
         description: "Entrada ou saída"
 
+  - name: rpt_monthly_movements
+    description: "Report criado para acompanhar os balanços mensais das movimentações"
+    columns:
+      - name: action_month
+        description: "Mês referência"
+      - name: account_id
+        description: "Número da account"
+      - name: account_name
+        description: "Nome do dono da account"
+      - name: sum_amount_in
+        description: "Soma de entradas no mês"
+      - name: sum_amount_out
+        description: "Soma de saídas no mês"
+      - name: cumulative_balance
+        description: "Valor acumulado, baseado nas entradas e saídas com relação ao mês anterior"
