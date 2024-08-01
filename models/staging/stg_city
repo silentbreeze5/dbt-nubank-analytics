@@ -1,0 +1,15 @@
+{{
+  config(
+    materialized='table'
+  )
+}}
+
+WITH cte_city AS (
+    SELECT
+        CAST(city AS string) AS city
+        , CAST(state_id AS integer) AS state_id
+        , CAST(city_id AS integer) AS city_id 
+    FROM {{ source('raw-data', 'city')}}
+)
+
+SELECT * FROM cte_city

@@ -40,3 +40,157 @@ models:
         description: "Digito da account"
       - name: account_number
         description: "Número da account"
+
+  - name: stg_customers
+    description: "Tabela dimensão de customers"
+    columns:
+      - name: customer_id
+        description: "ID único do cliente"
+        tests: 
+          - not_null
+          - unique
+      - name: first_name
+        description: "Primeiro nome do cliente"
+      - name: last_name
+        description: "Último nome do cliente"
+      - name: customer_city
+        description: "ID da cidade do cliente"
+      - name: cpf
+        description: "CPF do cliente"
+      - name: country_name
+        description: "Nome do país"
+
+  - name: stg_d_month
+    description: "Tabela dimensão de meses"
+    columns:
+      - name: month_id
+        description: "ID único do mês"
+        tests: 
+          - not_null
+          - unique
+      - name: action_month
+        description: "Mês de ação"
+
+  - name: stg_d_time
+    description: "Tabela dimensão de tempo"
+    columns:
+      - name: time_id
+        description: "ID único do tempo"
+        tests: 
+          - not_null
+          - unique
+      - name: action_timestamp
+        description: "Timestamp da ação"
+      - name: week_id
+        description: "ID da semana"
+      - name: month_id
+        description: "ID do mês"
+      - name: year_id
+        description: "ID do ano"
+      - name: weekday_id
+        description: "ID do dia da semana"
+
+  - name: stg_d_week
+    description: "Tabela dimensão de semanas"
+    columns:
+      - name: week_id
+        description: "ID único da semana"
+        tests: 
+          - not_null
+          - unique
+      - name: action_week
+        description: "Semana de ação"
+
+  - name: stg_d_weekday
+    description: "Tabela dimensão de dias da semana"
+    columns:
+      - name: weekday_id
+        description: "ID único do dia da semana"
+        tests: 
+          - not_null
+          - unique
+      - name: action_weekday
+        description: "Dia da semana de ação"
+
+  - name: stg_d_year
+    description: "Tabela dimensão de anos"
+    columns:
+      - name: year_id
+        description: "ID único do ano"
+        tests: 
+          - not_null
+          - unique
+      - name: action_year
+        description: "Ano de ação"
+
+  - name: stg_pix_movements
+    description: "Tabela de movimentações PIX"
+    columns:
+      - name: id
+        description: "ID único da movimentação"
+        tests: 
+          - not_null
+          - unique
+      - name: account_id
+        description: "ID da conta relacionada"
+      - name: pix_amount
+        description: "Valor da movimentação PIX"
+      - name: pix_requested_at
+        description: "Data de solicitação da movimentação PIX"
+      - name: pix_completed_at
+        description: "Data de conclusão da movimentação PIX"
+      - name: status
+        description: "Status da movimentação PIX"
+      - name: in_or_out
+        description: "Indica se a movimentação é de entrada ou saída"
+
+  - name: stg_state
+    description: "Tabela dimensão de estados"
+    columns:
+      - name: state_id
+        description: "ID único do estado"
+        tests: 
+          - not_null
+          - unique
+      - name: state_name
+        description: "Nome do estado"
+      - name: country_id
+        description: "ID do país"
+
+  - name: stg_tranfer_ins
+    description: "Tabela de transferências de entrada"
+    columns:
+      - name: id
+        description: "ID único da transação"
+        tests: 
+          - not_null
+          - unique
+      - name: account_id
+        description: "ID da conta relacionada"
+      - name: amount
+        description: "Valor da transação"
+      - name: transaction_requested_at
+        description: "Data de solicitação da transação"
+      - name: transaction_completed_at
+        description: "Data de conclusão da transação"
+      - name: status
+        description: "Status da transação"
+
+  - name: stg_transfer_outs
+    description: "Tabela de transferências de saída"
+    columns:
+      - name: id
+        description: "ID único da transferência de saída"
+        tests: 
+          - not_null
+          - unique
+      - name: account_id
+        description: "ID da conta relacionada"
+      - name: amount
+        description: "Valor da transferência de saída"
+      - name: transaction_requested_at
+        description: "Data de solicitação da transferência"
+      - name: transaction_completed_at
+        description: "Data de conclusão da transferência"
+      - name: status
+        description: "Status da transferência"
