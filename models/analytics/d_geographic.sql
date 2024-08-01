@@ -1,3 +1,9 @@
+{{
+  config(
+    materialized='table'
+  )
+}}
+
 WITH cte_geographic AS (
 SELECT
     c.city_id

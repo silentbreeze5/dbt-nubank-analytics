@@ -81,3 +81,27 @@ models:
         description: "Dígito verificador da conta"
       - name: account_number
         description: "Número da conta"
+
+  - name: f_movements
+    description: "Tabela fato com as movimentações via transação e via pix, tanto para entradas quanto saídas"
+    columns:
+      - name: id
+        description: "ID Único da movimentação"
+        tests: 
+          - not_null
+          - unique
+      - name: account_id
+        description: "Chave estrangeira da tabela accounts"
+      - name: amount
+        description: "Valor da movimentação"
+      - name: movement_requested_at
+        description: "Timestamp da hora que foi solicitada a movimentação"
+      - name: movement_completed_at
+        description: "Timestamp da hora que foi completada a movimentação"
+      - name: status
+        description: "Status da movimentação"
+      - name: movement_type
+        description: "Tipo de movimentação"
+      - name: in_or_out
+        description: "Entrada ou saída"
+
